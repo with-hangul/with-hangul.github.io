@@ -14,49 +14,48 @@
   </section>
   <section>
     <div class="title">관심사</div>
-    <div class="content"></div>
     <div class="content">
-      <div id="interest-description">사람, 글자, 기술이라는 세 가지 영역을 중심으로<br />그 교점들에 있는 주제들을 탐구합니다.</div>
+      <div class="description center border-bottom">사람, 글자, 기술이라는 세 가지 영역을 중심으로<br />그 교점들에 있는 주제들을 탐구합니다.</div>
     </div>
-    <div id="interests-container">
-      <div class="interest">사람</div>
-      <div class="interest">글자</div>
-      <div class="interest">기술</div>
+    <div id="interests-container" class="border-bottom">
+      <div class="interest center">사람</div>
+      <div class="interest center">글자</div>
+      <div class="interest center">기술</div>
     </div>
-    <div id="keywords-container"></div>
+    <div id="keywords-container" class="border-bottom"></div>
   </section>
   <section>
     <div class="title">일하는 방식</div>
     <div class="content">
-      <div>글자랑은 아래와 같은 방식으로<br />생각하고 행동합니다</div>
-      <div>
-        <div>
-          <div>자발적으로 실험하고 한계에 도전합니다</div>
-          <div>위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
+      <div class="border-bottom description center">글자랑은 아래와 같은 방식으로<br />생각하고 행동합니다</div>
+      <div class="toggle-container">
+        <div class="toggle">
+          <div class="border-bottom center">자발적으로 실험하고 한계에 도전합니다</div>
+          <div class="border-bottom center">위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되
           </div>
         </div>
-        <div>
-          <div>전문성을 가지고 문제를 해결합니다</div>
-          <div>위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
+        <div class="toggle">
+          <div class="border-bottom center">전문성을 가지고 문제를 해결합니다</div>
+          <div class="border-bottom center">위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되
           </div>
         </div>
-        <div>
-          <div>오픈소스 기반으로 커뮤니티에 기여합니다</div>
-          <div>위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
+        <div class="toggle">
+          <div class="border-bottom center">오픈소스 기반으로 커뮤니티에 기여합니다</div>
+          <div class="border-bottom center">위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되
           </div>
         </div>
-        <div>
-          <div>디지털 문자 생태계의 다양성을 추구합니다</div>
-          <div>위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
+        <div class="toggle">
+          <div class="border-bottom center">디지털 문자 생태계의 다양성을 추구합니다</div>
+          <div class="border-bottom center">위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되
@@ -85,6 +84,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 
   .content.vision {
@@ -108,5 +108,46 @@
   #vision-description {
     font-size: 25px;
     text-align: center;
+  }
+
+  .description {
+    height: 200px;
+    font-size: 40px;
+    width: 100%;
+  }
+
+  #interests-container {
+    display: flex;
+  }
+
+  .interest {
+    flex: 1;
+    height: 200px;
+    font-weight: 700;
+    font-size: 50px;
+  }
+
+  .interest:not(:last-child) {
+    border-right: 2px solid black;
+  }
+
+  #keywords-container {
+    height: 920px;
+    background-color: #F4F4F0;
+  }
+
+  .toggle-container, .toggle-container div {
+    width: 100%;
+  }
+
+  .toggle > div:first-child {
+    height: 80px;
+    font-weight: 700;
+    font-size: 50px;
+  }
+
+  .toggle > div:nth-child(2) {
+    background-color: #F4F4F0;
+    font-size: 25px;
   }
 </style>

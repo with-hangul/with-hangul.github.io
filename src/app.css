@@ -36,6 +36,20 @@
   -webkit-text-size-adjust: 100%;
 }
 
+* {
+  text-align: center;
+}
+
 body {
   margin: 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.border-bottom {
+  border-bottom: 2px solid black;
 }
