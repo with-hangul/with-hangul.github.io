@@ -1,5 +1,61 @@
 <script>
-  import Footer from "../components/Footer.svelte";
+  import { onMount } from 'svelte';
+  import Footer from '../components/Footer.svelte';
+  import keywords from '../keywords'
+
+  onMount(() => {
+    const keywordsContainer = document.getElementById('keywords-container')
+
+    keywords.forEach((keyword) => {
+      const tag = document.createElement('div')
+      tag.appendChild(document.createTextNode(keyword.name))
+
+      tag.style.position = 'absolute'
+      tag.style.top = `${keywordsContainer.offsetTop + Math.random() * keywordsContainer.clientHeight}px`
+      tag.style.left = `${keywordsContainer.offsetLeft + Math.random() * keywordsContainer.clientWidth}px`
+
+      // tag.classList.add('keyword')
+      // tag.style.height = '40px'
+      tag.style.borderRadius = '100px'
+      tag.style.border = '1px solid black'
+      // tag.style.backgroundColor = 'white'
+      tag.style.display = 'flex'
+      tag.style.justifyContent = 'center'
+      tag.style.alignItems = 'center'
+      tag.style.padding = '8px 14px'
+
+      // let backgroundColor = ''
+      if (areEqual(keyword.fields, ['글자'])) {
+        tag.style.backgroundColor = '#A1E2A8'
+      } else if (areEqual(keyword.fields, ['글자', '기술'])) {
+        tag.style.backgroundColor = '#3AEFEF'
+      } else if (areEqual(keyword.fields, ['기술'])) {
+        tag.style.backgroundColor = '#829CF6'
+      } else if (areEqual(keyword.fields, ['기술', '사람'])) {
+        tag.style.backgroundColor = '#BE94E8'
+      } else if (areEqual(keyword.fields, ['사람'])) {
+        tag.style.backgroundColor = '#F097E3'
+      } else if (areEqual(keyword.fields, ['사람', '글자'])) {
+        tag.style.backgroundColor = '#F2F25D'
+      }
+
+      keywordsContainer.appendChild(tag)
+    })
+  })
+
+  function areEqual(array1, array2) {
+  if (array1.length === array2.length) {
+    return array1.every((element, index) => {
+      if (element === array2[index]) {
+        return true;
+      }
+
+      return false;
+    });
+  }
+
+  return false;
+}
 
   function toggle(e) {
     document.querySelectorAll('.toggle').forEach((el) => {
