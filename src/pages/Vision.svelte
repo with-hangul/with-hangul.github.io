@@ -80,4 +80,33 @@
     justify-content: center;
     align-items: center;
   }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content.vision {
+    background-color: black;
+    color: white;
+    height: 600px;
+  }
+
+  .content.vision > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #vision {
+    font-weight: 700;
+    font-size: 80px;
+    margin-bottom: 45px;
+  }
+
+  #vision-description {
+    font-size: 25px;
+    text-align: center;
+  }
 </style>
