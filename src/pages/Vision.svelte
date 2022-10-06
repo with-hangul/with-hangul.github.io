@@ -1,5 +1,13 @@
 <script>
   import Footer from "../components/Footer.svelte";
+
+  function toggle(e) {
+    document.querySelectorAll('.toggle').forEach((el) => {
+      // @ts-ignore
+      el.children[1].style.display = 'none'
+    });
+    e.target.nextElementSibling.style.display = 'block'
+  }
 </script>
 
 <main>
@@ -30,7 +38,7 @@
       <div class="border-bottom description center">글자랑은 아래와 같은 방식으로<br />생각하고 행동합니다</div>
       <div class="toggle-container">
         <div class="toggle">
-          <div class="border-bottom center">자발적으로 실험하고 한계에 도전합니다</div>
+          <div class="border-bottom center" on:click={toggle}>자발적으로 실험하고 한계에 도전합니다</div>
           <div class="border-bottom center">위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
@@ -38,7 +46,7 @@
           </div>
         </div>
         <div class="toggle">
-          <div class="border-bottom center">전문성을 가지고 문제를 해결합니다</div>
+          <div class="border-bottom center" on:click={toggle}>전문성을 가지고 문제를 해결합니다</div>
           <div class="border-bottom center">위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
@@ -46,7 +54,7 @@
           </div>
         </div>
         <div class="toggle">
-          <div class="border-bottom center">오픈소스 기반으로 커뮤니티에 기여합니다</div>
+          <div class="border-bottom center" on:click={toggle}>오픈소스 기반으로 커뮤니티에 기여합니다</div>
           <div class="border-bottom center">위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
@@ -54,7 +62,7 @@
           </div>
         </div>
         <div class="toggle">
-          <div class="border-bottom center">디지털 문자 생태계의 다양성을 추구합니다</div>
+          <div class="border-bottom center" on:click={toggle}>디지털 문자 생태계의 다양성을 추구합니다</div>
           <div class="border-bottom center">위의 행동강령에 대한 설명 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확
             <br />아직 확정되지 않음, 아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음아직 확정되지 않음
@@ -149,5 +157,6 @@
   .toggle > div:nth-child(2) {
     background-color: #F4F4F0;
     font-size: 25px;
+    display: none;
   }
 </style>
