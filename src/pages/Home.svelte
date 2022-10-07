@@ -63,7 +63,7 @@
       <span>글자랑</span>
     </div>
   </section>
-  <section class="border-bottom center" style="background-color: #FED35D; height: unset;">
+  <section id="meanings-container" class="border-bottom center" style="background-color: #FED35D; height: unset;">
     <div class="center meaning">
       <div>글자:랑</div>
       <div>글자와 함께하다</div>
@@ -148,5 +148,21 @@
 
   .meaning >div:nth-child(2) {
     font-size: 30px;
+  }
+
+  @media (orientation: portrait) {
+    #meanings-container {
+      flex-direction: column;
+    }
+
+    .meaning {
+      width: 100%;
+      padding: 30px 0px;
+    }
+
+    .meaning:first-child {
+    border-right: none;
+    border-bottom: 2px solid black;
+  }
   }
 </style>
