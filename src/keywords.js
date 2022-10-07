@@ -97,4 +97,36 @@ const keywords = [
   { name: '폰트 사용현황', fields: ['사람', '글자'] },
 ]
 
+ // reference: https://bobbyhadz.com/blog/javascript-check-if-two-arrays-have-same-elements
+ function areEqual(array1, array2) {
+  if (array1.length === array2.length) {
+    return array1.every((element, index) => {
+      if (element === array2[index]) {
+        return true;
+      }
+
+      return false;
+    });
+  }
+
+  return false;
+}
+
+// 색상 지정
+keywords.forEach((keyword) => {
+  if (areEqual(keyword.fields, ['글자'])) {
+    keyword.color = '#A1E2A8'
+  } else if (areEqual(keyword.fields, ['글자', '기술'])) {
+    keyword.color = '#3AEFEF'
+  } else if (areEqual(keyword.fields, ['기술'])) {
+    keyword.color = '#829CF6'
+  } else if (areEqual(keyword.fields, ['기술', '사람'])) {
+    keyword.color = '#BE94E8'
+  } else if (areEqual(keyword.fields, ['사람'])) {
+    keyword.color = '#F097E3'
+  } else if (areEqual(keyword.fields, ['사람', '글자'])) {
+    keyword.color = '#F2F25D'
+  }
+})
+
 export default keywords
