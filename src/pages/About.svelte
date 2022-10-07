@@ -3,9 +3,13 @@
   import History from '../components/History.svelte';
   import BusinessCard from '../components/BusinessCard.svelte';
   import businesses from '../businesses';
+  import sample from '../assets/videos/sample.mp4'
 </script>
 
 <main>
+  <video autoplay muted loop id="video-background">
+    <source src={sample} type="video/mp4">
+  </video>
   <section id="about">
     <!-- h1, h2 이런 거 쓰고 싶은데 어떻게 써야 할지 고민됨... -->
     <div class="subheading">About</div>
@@ -72,8 +76,14 @@
     margin: 0px;
   }
 
+  #video-background {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+  }
+
   #about {
-    background-color: black;
     padding-top: 122px;
     padding-bottom: 164px;
     padding-left: 83px;
