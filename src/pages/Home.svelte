@@ -20,8 +20,8 @@
     <div class="keyword center">글자</div>
     <div class="keyword center">기술</div>
   </section>
-  <section id="fifth">
-    <div>
+  <section class="marquee" style="height: 160px; background-color: black; color: white;">
+    <div class="marquee-content">
       <span>글자랑</span>
       <span>글자랑</span>
       <span>글자랑</span>
@@ -33,7 +33,7 @@
       <span>글자랑</span>
       <span>글자랑</span>
     </div>
-    <div>
+    <div class="marquee-content">
       <span>글자랑</span>
       <span>글자랑</span>
       <span>글자랑</span>
@@ -74,5 +74,37 @@
 
   .keyword:not(:last-child) {
     border-right: 2px solid black;
+  }
+
+  .marquee {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .marquee-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    animation-name: marquee-content;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  .marquee-content > span {
+    font-weight: 700;
+    font-size: 100px;
+  }
+
+  @keyframes marquee-content {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
   }
 </style>
