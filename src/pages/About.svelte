@@ -1,5 +1,7 @@
 <script>
   import Footer from '../components/Footer.svelte';
+  import BusinessCard from '../components/BusinessCard.svelte';
+  import businesses from '../businesses';
 </script>
 
 <main>
@@ -21,6 +23,11 @@
   <section id="business">
     <div class="subheading">Business</div>
     <div class="heading">글자랑에게 요청하세요</div>
+    <div class="cards-container">
+      {#each businesses as business (business.title)}
+        <BusinessCard title={business.title} description={business.description} tags={business.tags} imgURL={business.imgURL} />
+      {/each}
+    </div>
   </section>
   <section id="contact-us">
     <div class="subheading">Contact us</div>
@@ -121,6 +128,14 @@
   #business .heading {
     color: black;
     margin-bottom: 80px;
+  }
+
+  #business .cards-container {
+    border: 2px solid black;
+    border-bottom: none;
+    margin-left: 48px;
+    margin-right: 48px;
+    margin-bottom: 64px;
   }
 
   #contact-us {
