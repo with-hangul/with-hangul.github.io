@@ -15,8 +15,8 @@
 
     stickers.forEach((sticker) => {
       sticker.style.position = 'absolute'
-      sticker.style.top = `${stickersContainer.offsetTop + Math.random() * stickersContainer.clientHeight}px`
-      sticker.style.left = `${stickersContainer.offsetLeft + Math.random() * stickersContainer.clientWidth}px`
+      sticker.style.top = `${stickersContainer.offsetTop + Math.random() * (stickersContainer.clientHeight - sticker.clientHeight)}px`
+      sticker.style.left = `${(stickersContainer.offsetLeft - sticker.clientWidth / 2) + Math.random() * stickersContainer.clientWidth}px`
     })
   })
 </script>
