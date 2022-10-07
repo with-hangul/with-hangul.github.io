@@ -1,22 +1,24 @@
 <script>
+  import logo from '../assets/logo.svg'
+  import logoDecorated from '../assets/logo-decorated.svg'
   import Footer from '../components/Footer.svelte';
 </script>
 
 <main>
-  <section id="first">
-    <img src="" />
+  <section class="center border-bottom" style="background-color: #F4F4F0;">
+    <img src={logo} alt="" width="auto" height="85%" />
   </section>
-  <section id="second">
-    <div class="vertical-container">
-      <img src="" />
-      <div>새로운 글자를 쉽고, 빠르게</div>
+  <section class="center border-bottom" style="background-color: #AC9AFF;">
+    <div>
+      <img src={logoDecorated} alt="" width="286" height="auto" />
+      <div style="font-size: 50px; color: white;"><b>새로운 글자</b>를 <b>쉽고, 빠르게</b></div>
     </div>
   </section>
-  <section id="third"></section>
-  <section id="fourth">
-    <div>사람</div>
-    <div>글자</div>
-    <div>기술</div>
+  <div class="border-bottom" style="background-color: #BDFF00; height: 80px;"></div>
+  <section class="center border-bottom" style="height: unset;">
+    <div class="keyword center">사람</div>
+    <div class="keyword center">글자</div>
+    <div class="keyword center">기술</div>
   </section>
   <section id="fifth">
     <div>
@@ -57,3 +59,20 @@
   <section id="seventh"></section>
   <Footer />
 </main>
+
+<style>
+  section {
+    height: calc(100vh - 50px); /* Header 높이 제외 */
+  }
+
+  .keyword {
+    flex: 1;
+    height: 200px;
+    font-weight: 700;
+    font-size: 100px;
+  }
+
+  .keyword:not(:last-child) {
+    border-right: 2px solid black;
+  }
+</style>
