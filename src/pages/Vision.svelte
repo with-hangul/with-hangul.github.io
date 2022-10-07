@@ -14,6 +14,21 @@
     })
   })
 
+  function highlight(e) {
+    const keyword = e.target
+    const fields = keyword.dataset.fields.split(',')
+
+    document.querySelectorAll('.interest').forEach((interest) => {
+      if (fields.includes(interest.textContent)) interest.style.backgroundColor = keyword.style.backgroundColor
+    })
+  }
+
+  function removeHighlight(e) {
+    document.querySelectorAll('.interest').forEach((interest) => {
+      interest.style.backgroundColor = 'white'
+    })
+  }
+
   function toggle(e) {
     document.querySelectorAll('.toggle').forEach((el) => {
       // @ts-ignore
@@ -45,7 +60,15 @@
     </div>
     <div id="keywords-container" class="border-bottom">
       {#each keywords as keyword (keyword.name)}
-        <div class="keyword center" style="background-color: {keyword.color};">{keyword.name}</div>
+        <div
+          class="keyword center"
+          style="background-color: {keyword.color};"
+          data-fields={keyword.fields}
+          on:mouseenter={highlight}
+          on:mouseleave={removeHighlight}
+        >
+          {keyword.name}
+        </div>
       {/each}
     </div>
   </section>
