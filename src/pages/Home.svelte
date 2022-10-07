@@ -1,7 +1,24 @@
 <script>
+  import { onMount } from 'svelte'
+  import Footer from '../components/Footer.svelte';
   import logo from '../assets/logo.svg'
   import logoDecorated from '../assets/logo-decorated.svg'
-  import Footer from '../components/Footer.svelte';
+  import geulStraight from '../assets/geul-straight.svg'
+  import jaStraight from '../assets/ja-straight.svg'
+  import jaCurved from '../assets/ja-curved.svg'
+  import rangStraight from '../assets/rang-straight.svg'
+  import rangCurved from '../assets/rang-curved.svg'
+
+  onMount(() => {
+    const stickersContainer = document.getElementById('stickers-container')
+    const stickers = document.querySelectorAll('.sticker')
+
+    stickers.forEach((sticker) => {
+      sticker.style.position = 'absolute'
+      sticker.style.top = `${stickersContainer.offsetTop + Math.random() * stickersContainer.clientHeight}px`
+      sticker.style.left = `${stickersContainer.offsetLeft + Math.random() * stickersContainer.clientWidth}px`
+    })
+  })
 </script>
 
 <main>
@@ -56,7 +73,13 @@
       <div>글을 자랑하다</div>
     </div>
   </section>
-  <section style="height: 460px; background-color: #F4F4F0;"></section>
+  <section id="stickers-container" style="height: 460px; background-color: #F4F4F0;">
+    <img class="sticker" src={geulStraight} alt="" />
+    <img class="sticker" src={jaStraight} alt="" />
+    <img class="sticker" src={jaCurved} alt="" />
+    <img class="sticker" src={rangStraight} alt="" />
+    <img class="sticker" src={rangCurved} alt="" />
+  </section>
   <Footer />
 </main>
 
