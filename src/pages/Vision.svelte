@@ -30,10 +30,23 @@
   }
 
   function toggle(e) {
+    if (e.target.classList.contains('selected')) {
+      // 그냥 classList 더했다 뺐다 해서 스타일이 자동으로 적용되게 할 수 있는데 스벨트에서는 그게 안 먹히는 듯...ㅠㅠ 일단 이렇게 냅둠
+      e.target.classList.remove('selected')
+      e.target.style.backgroundColor = 'white'
+      e.target.style.color = 'black'
+      e.target.nextElementSibling.style.display = 'none'
+      return
+    }
+
     document.querySelectorAll('.toggle').forEach((el) => {
-      // @ts-ignore
+      el.children[0].style.backgroundColor = 'white'
+      el.children[0].style.color = 'black'
       el.children[1].style.display = 'none'
     });
+    e.target.classList.add('selected')
+    e.target.style.backgroundColor = 'black'
+    e.target.style.color = 'white'
     e.target.nextElementSibling.style.display = 'block'
   }
 </script>
@@ -200,6 +213,17 @@
     height: 80px;
     font-weight: 700;
     font-size: 50px;
+  }
+
+  .toggle > div:first-child:hover {
+    background-color: #FFC8FA;
+    cursor: pointer;
+  }
+
+  .toggle > div:first-child.selected {
+    background-color: black;
+    color: white;
+    cursor: pointer;
   }
 
   .toggle > div:nth-child(2) {
