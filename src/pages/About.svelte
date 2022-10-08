@@ -4,6 +4,7 @@
   import BusinessCard from '../components/BusinessCard.svelte';
   import businesses from '../businesses';
   import sample from '../assets/videos/sample.mp4'
+  import LinkButton from '../components/LinkButton.svelte';
 </script>
 
 <main>
@@ -43,12 +44,12 @@
       <div class="card">
         <div class="heading">​​​​​​​프로젝트 의뢰는<br />아래의 이메일로</div>
         <p>협업 제안, 리서치 의뢰, 투자 제안 등<br />주저하지 말고 두드려주세요.</p>
-        <a href="mailto:with.hangul@gmail.com">with.hangul@gmail.com</a>
+        <LinkButton link="mailto:with.hangul@gmail.com" text="메일 보내기" isDark={true} />
       </div>
       <div class="card">
         <div class="heading">가벼운 얘기라면<br />채팅도 좋아요</div>
         <p>서비스에 대한 피드백이나 문의<br />무엇이든 편하게 연락주세요.</p>
-        <a href="https://open.kakao.com/o/seBw5jGe">open.kakao.com/o/seBw5jGe</a>
+        <LinkButton link="https://open.kakao.com/o/seBw5jGe" text="카카오톡 1:1 대화" isDark={true} />
       </div>
     </div>
   </section>
@@ -176,10 +177,6 @@
     margin-bottom: 20px;
   }
 
-  #contact-us a {
-    color: white;
-  }
-
   #contact-us .cards-container {
     display: flex;
   }
@@ -188,5 +185,6 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding: 10px;
   }
 </style>
