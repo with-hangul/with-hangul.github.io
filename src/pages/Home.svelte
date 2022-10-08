@@ -9,6 +9,8 @@
   import jaCurved from '../assets/ja-curved.svg'
   import rangStraight from '../assets/rang-straight.svg'
   import rangCurved from '../assets/rang-curved.svg'
+  import dynamicLogo from '../dynamicLogo.js'
+
   let innerWidth = window.innerWidth;
 
   onMount(() => {
@@ -24,28 +26,63 @@
     // Canvas API 사용 예시
     const canvas = document.getElementById('canvas-sample')
     const ctx = canvas.getContext('2d')
-    
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = map(window.innerHeight, 1, 2000, 2, 1000);
+
+    drawLogo(ctx)
+    // 2:1 사이즈부터 ~ 900 // 1:2 사이즈로 할까?
     let frame = requestAnimationFrame(loop);
 
     function loop(t) {
       frame = requestAnimationFrame(loop);
-      ctx.fillRect(0, 0, frame, 80)
-      console.log(frame)
+      // ctx.fillRect(0, 0, frame, 80)
     }
   })
 
+  function drawLogo(ctx) {
+    function percentX(value) {
+      return value*ctx.canvas.width/100
+    }
+    function percentY(value) {
+      return value*ctx.canvas.height/100
+    }
+    ctx.lineWidth = 26;
+    ctx.strokeStyle = "red"
+    ctx.beginPath()
+    dynamicLogo.lines.forEach(line => {
+      for(let i = 0; i < line.points.length; i++) {
+        const point = line.points[i]
+        if(i === 0) ctx.moveTo(percentX(point.x), percentY(point.y))
+        else ctx.lineTo(percentX(point.x), percentY(point.y))
+      }
+      ctx.stroke()
+    })
+  }
+
+
   function canvasResize(ctx) {
+
     const canvas = document.getElementById('canvas-sample')
     ctx = canvas.getContext('2d')
-    ctx.fillRect(0, 0, 300, 280)
-    console.log("s")
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = map(window.innerHeight, 1, 2000, 2, 1000);
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+
+    drawLogo(ctx)
+  
+    console.log("resize")
   }
 
   function mousemove(ctx) {
     const canvas = document.getElementById('canvas-sample')
     ctx = canvas.getContext('2d')
-    ctx.fillRect(0, 0, 300, 280)
-    console.log("m")
+    // ctx.fillRect(0, 0, 300, 280)
+    console.log("mousemove")
+  }
+
+  function map(value, inputStart, inputEnd, outputStart, outputEnd) {
+      const scale = (outputEnd - outputStart) / (inputEnd - inputStart) 
+      return value * scale +  (outputStart - inputStart * scale)            
   }
 
   // p5-svelte 사용 예시
