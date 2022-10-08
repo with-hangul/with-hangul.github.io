@@ -2,6 +2,10 @@
   import { onMount } from 'svelte'
   import { link, location } from 'svelte-spa-router'
   import logo from '../assets/logo.svg'
+  import hamburger from '../assets/hamburger.svg'
+  import close from '../assets/close.svg'
+
+  let isHamburgerOpen = false
 
   onMount(() => {
     const currentPage = $location.substring(1).toUpperCase()
@@ -19,12 +23,21 @@
       if (link !== e.target) link.style.textDecoration = 'none'
     })
   }
+
+  function toggleHamburger() {
+    isHamburgerOpen = !isHamburgerOpen
+
+    document.getElementsByTagName('nav')[0].style.display = isHamburgerOpen ? 'flex' : 'none'
+  }
 </script>
 
 <header>
   <a href="/" use:link on:click={select}>
     <img id="logo" src={logo} alt="" width="auto" height="75%" />
   </a>
+  <button id="hamburger" class="center" on:click={toggleHamburger}>
+    <img src={isHamburgerOpen ? close : hamburger} alt="menu" height="50%" />
+  </button>
   <nav>
     <a href="/about" use:link on:click={select}>ABOUT</a>
     <a href="/vision" use:link on:click={select}>VISION</a>
@@ -79,5 +92,32 @@
 
   nav > a.selected {
     text-decoration: underline;
+  }
+
+  #hamburger {
+    display: none;
+  }
+
+  @media (max-width: 700px) and (orientation: portrait) {
+    #hamburger {
+      display: block;
+      background: none;
+      border: none;
+      outline: none;
+      padding: 0px;
+      margin-right: 12px;
+    }
+
+    #hamburger:hover {
+      cursor: pointer;
+    }
+
+    nav {
+      position: fixed;
+      top: 50px;
+      right: 0px;
+      flex-direction: column;
+      display: none;
+    }
   }
 </style>
