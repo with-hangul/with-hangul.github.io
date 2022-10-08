@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte'
+  import P5 from 'p5-svelte'
   import Footer from '../components/Footer.svelte';
   import logo from '../assets/logo.svg'
   import logoDecorated from '../assets/logo-decorated.svg'
@@ -19,11 +20,30 @@
       sticker.style.left = `${(stickersContainer.offsetLeft - sticker.clientWidth / 2) + Math.random() * stickersContainer.clientWidth}px`
     })
   })
+
+  const sketch = (p5) => {
+    let logoImg;
+    p5.preload = () => {
+      logoImg = p5.loadImage(logo)
+    }
+
+    p5.setup = () => {
+      const container = document.getElementById('container')
+      const canvas = p5.createCanvas(container.clientWidth, container.clientHeight)
+      canvas.parent('container')
+
+      p5.image(logoImg, 0, 0)
+    }
+
+    p5.draw = () => {
+      p5.ellipse(p5.width / 2, p5.height / 2, 100, 100);
+    }
+  }
 </script>
 
 <main>
-  <section class="center border-bottom" style="background-color: #F4F4F0;">
-    <img src={logo} alt="" width="auto" height="85%" />
+  <section id="container" class="center border-bottom" style="background-color: #F4F4F0;">
+    <!-- <img src={logo} alt="" width="auto" height="85%" /> -->
   </section>
   <section class="center border-bottom" style="background-color: #AC9AFF;">
     <div>
@@ -82,6 +102,7 @@
   </section>
   <Footer />
 </main>
+<P5 {sketch} />
 
 <style>
   section {
@@ -161,8 +182,8 @@
     }
 
     .meaning:first-child {
-    border-right: none;
-    border-bottom: 2px solid black;
-  }
+      border-right: none;
+      border-bottom: 2px solid black;
+    }
   }
 </style>
