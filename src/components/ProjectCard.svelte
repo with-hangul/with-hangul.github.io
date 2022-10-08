@@ -42,9 +42,11 @@
     width: 360px;
     height: 360px;
     flex-shrink: 0;
+    object-fit: cover;
   }
 
   .texts-container {
+    flex: 1;
     margin: 52px 30px;
     display: flex;
     flex-direction: column;
@@ -81,6 +83,7 @@
   .tags-container {
     display: flex;
     margin-top: 15px;
+    flex-wrap: wrap;
   }
 
   .tag {
@@ -93,5 +96,32 @@
 
   .tag:not(:last-child) {
     margin-right: 8px;
+  }
+
+  @media (max-width: 700px) and (orientation: portrait) {
+    .card {
+      flex-direction: column;
+    }
+
+    .card:not(:last-child) {
+    margin-bottom: 17px;
+  }
+
+    img {
+      width: 100%;
+      height: 172px;
+    }
+
+    .texts-container {
+      margin: 30px;
+    }
+
+    .tags-container {
+      margin-bottom: 15px;
+    }
+
+    .tag {
+      margin-bottom: 8px;
+    }
   }
 </style>
