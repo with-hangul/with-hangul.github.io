@@ -9,6 +9,7 @@
   import jaCurved from '../assets/ja-curved.svg'
   import rangStraight from '../assets/rang-straight.svg'
   import rangCurved from '../assets/rang-curved.svg'
+  let innerWidth = window.innerWidth;
 
   onMount(() => {
     const stickersContainer = document.getElementById('stickers-container')
@@ -23,9 +24,29 @@
     // Canvas API 사용 예시
     const canvas = document.getElementById('canvas-sample')
     const ctx = canvas.getContext('2d')
+    
+    let frame = requestAnimationFrame(loop);
 
-    ctx.fillRect(50, 50, 100, 80)
+    function loop(t) {
+      frame = requestAnimationFrame(loop);
+      ctx.fillRect(0, 0, frame, 80)
+      console.log(frame)
+    }
   })
+
+  function canvasResize(ctx) {
+    const canvas = document.getElementById('canvas-sample')
+    ctx = canvas.getContext('2d')
+    ctx.fillRect(0, 0, 300, 280)
+    console.log("s")
+  }
+
+  function mousemove(ctx) {
+    const canvas = document.getElementById('canvas-sample')
+    ctx = canvas.getContext('2d')
+    ctx.fillRect(0, 0, 300, 280)
+    console.log("m")
+  }
 
   // p5-svelte 사용 예시
   const sketch = (p5) => {
@@ -48,7 +69,16 @@
   }
 </script>
 
+<svelte:window 
+  bind:innerWidth
+  on:resize={canvasResize} 
+  />
+
 <main>
+  <div>
+    Width: {innerWidth}
+  </div>
+  <canvas id="canvas-sample" on:mousemove={mousemove} >이 브라우저는 Javascript Canvas API를 지원하지 않습니다.</canvas>
   <section id="container" class="center border-bottom" style="background-color: #F4F4F0;">
     <!-- <img src={logo} alt="" width="auto" height="85%" /> -->
   </section>
@@ -107,7 +137,6 @@
     <img class="sticker" src={rangStraight} alt="" />
     <img class="sticker" src={rangCurved} alt="" />
   </section>
-  <canvas id="canvas-sample">이 브라우저는 Javascript Canvas API를 지원하지 않습니다.</canvas>
   <Footer />
 </main>
 <P5 {sketch} />
