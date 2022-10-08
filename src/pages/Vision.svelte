@@ -12,21 +12,6 @@
       tag.style.top = `${keywordsContainer.offsetTop + Math.random() * (keywordsContainer.clientHeight - tag.clientHeight)}px`
       tag.style.left = `${keywordsContainer.offsetLeft + Math.random() * (keywordsContainer.clientWidth - tag.clientWidth)}px`
     })
-
-    // reference: https://css-tricks.com/animate-a-container-on-mouse-over-using-perspective-and-transform/
-    keywordsContainer.addEventListener('mousemove', (e) => {
-      const x = e.pageX - keywordsContainer.offsetLeft - keywordsContainer.clientWidth / 2
-      const y = e.pageY - keywordsContainer.offsetTop - keywordsContainer.clientHeight / 2
-
-      // keywordsContainer.style.transform = `translate3d(0, ${x}, 0)`
-      keywordTags.forEach((tag) => {
-        const tagX = tag.offsetLeft - keywordsContainer.offsetLeft - keywordsContainer.clientWidth / 2
-        const tagY = tag.offsetTop - keywordsContainer.offsetTop - keywordsContainer.clientHeight / 2
-
-        // console.log(x - tagX)
-        tag.style.transform = `translateX(${x - tagX}px) translateY(${y - tagY}px)`;
-      })
-    })
   })
 
   function highlight(e) {
@@ -208,7 +193,6 @@
   #keywords-container {
     height: 920px;
     background-color: #F4F4F0;
-    /* perspective: 10px; */
   }
 
   .keyword {
