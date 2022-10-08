@@ -19,8 +19,15 @@
       sticker.style.top = `${stickersContainer.offsetTop + Math.random() * (stickersContainer.clientHeight - sticker.clientHeight)}px`
       sticker.style.left = `${(stickersContainer.offsetLeft - sticker.clientWidth / 2) + Math.random() * stickersContainer.clientWidth}px`
     })
+
+    // Canvas API 사용 예시
+    const canvas = document.getElementById('canvas-sample')
+    const ctx = canvas.getContext('2d')
+
+    ctx.fillRect(50, 50, 100, 80)
   })
 
+  // p5-svelte 사용 예시
   const sketch = (p5) => {
     let logoImg;
     p5.preload = () => {
@@ -100,6 +107,7 @@
     <img class="sticker" src={rangStraight} alt="" />
     <img class="sticker" src={rangCurved} alt="" />
   </section>
+  <canvas id="canvas-sample">이 브라우저는 Javascript Canvas API를 지원하지 않습니다.</canvas>
   <Footer />
 </main>
 <P5 {sketch} />
