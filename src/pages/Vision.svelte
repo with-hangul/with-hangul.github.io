@@ -83,6 +83,8 @@
           data-fields={keyword.fields}
           on:mouseenter={highlight}
           on:mouseleave={removeHighlight}
+          on:touchstart={highlight}
+          on:touchend={removeHighlight}
         >
           {keyword.name}
         </div>
