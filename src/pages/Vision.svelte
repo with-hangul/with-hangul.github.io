@@ -18,12 +18,16 @@
     const keyword = e.target
     const fields = keyword.dataset.fields.split(',')
 
+    keyword.style.backgroundColor = keyword.dataset.color
     document.querySelectorAll('.interest').forEach((interest) => {
       if (fields.includes(interest.textContent)) interest.style.backgroundColor = keyword.style.backgroundColor
     })
   }
 
   function removeHighlight(e) {
+    const keyword = e.target
+
+    keyword.style.backgroundColor = 'white'
     document.querySelectorAll('.interest').forEach((interest) => {
       interest.style.backgroundColor = 'white'
     })
@@ -75,10 +79,12 @@
       {#each keywords as keyword (keyword.name)}
         <div
           class="keyword center"
-          style="background-color: {keyword.color};"
+          data-color={keyword.color}
           data-fields={keyword.fields}
           on:mouseenter={highlight}
           on:mouseleave={removeHighlight}
+          on:touchstart={highlight}
+          on:touchend={removeHighlight}
         >
           {keyword.name}
         </div>
@@ -203,6 +209,7 @@
     padding: 8px 14px;
     overflow: hidden;
     white-space: nowrap;
+    background-color: white;
   }
 
   .toggle-container, .toggle-container div {
