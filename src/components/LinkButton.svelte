@@ -1,16 +1,16 @@
 <script>
   import arrowLink from '../assets/arrow-link.svg'
+  import arrowLinkWhite from '../assets/arrow-link-white.svg'
 
   export let link;
   export let text;
-  // export let theme;
-  // export let activeColor;
+  export let isDark;
 </script>
 
-<a href={link} class="center">
-  <div class="content-wrapper">
+<a href={link} class="center" class:dark={isDark}>
+  <div class="content-wrapper" class:dark={isDark}>
     <div class="text">{text}</div>
-    <img src={arrowLink} alt="" width="13" height="13" />
+    <img src={isDark ? arrowLinkWhite : arrowLink} alt="" width="13" height="13" />
   </div>
 </a>
 
@@ -22,13 +22,19 @@
   }
 
   .content-wrapper {
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
     width: 160px;
     height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid black;
+  }
+
+  .content-wrapper.dark {
+    color: white;
+    background-color: black;
     border: 1px solid white;
   }
 
@@ -51,21 +57,21 @@
     content: '';
     width: 160px;
     height: 40px;
-    /* background-color: white; */
     position: absolute;
     top: 0px;
     left: 0px;
     transform: translate(5px, 5px);
     z-index: -1;
+    border: 1px solid black;
+    background-color: white;
+  }
+
+  a.dark:hover::before {
     border: 1px solid white;
     background-color: black;
   }
 
-  /* a.mail:active {
+  a:active .content-wrapper {
     background-color: #BDFF00;
   }
-
-  a.chat:active {
-    background-color: #FED35D;
-  } */
 </style>
