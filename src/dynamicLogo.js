@@ -45,17 +45,13 @@ const DynamicLogo = {
         new Point(51, 35),
       ]),
       new Line([
-        new Point(40, 27),
-        new Point(51, 35),
-      ]),
-      new Line([
         new Point(57, 7),
         new Point(57, 39),
       ]),
       new Line([
         new Point(57, 20),
         new Point(63, 20),
-      ]),
+      ], "strict"),
     ]),
     new Type([
       new Line([
@@ -77,11 +73,12 @@ const DynamicLogo = {
       new Line([
         new Point(87, 21),
         new Point(93, 21),
-      ]),
+      ], "strict"),
     ], 
     [
       new Graphic({
-        x:78, y:48, shape:null})
+        x:78, y:48, shape:null
+      })
     ])
   ]
 }

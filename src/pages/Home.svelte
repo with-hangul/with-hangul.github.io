@@ -29,88 +29,50 @@
     ctx.canvas.height = map(window.innerHeight, 1, 2000, 2, 1500);
 
     drawLogo(ctx)
-    // 2:1 사이즈부터 ~ 900 // 1:2 사이즈로 할까?
-    let frame = requestAnimationFrame(loop);
-
-    function loop(t) {
-      frame = requestAnimationFrame(loop);
-      // ctx.fillRect(0, 0, frame, 80)
-    }
+    let frame = requestAnimationFrame(drawLogo);
+    let interval = setInterval(intervalLogo, 1200)
   })
 
 
+  function intervalLogo() {
+    dynamicLogo.types.forEach(type => {
+      type.lines.forEach(line => {
+        line.setType('straight')
+        if(Math.random(1) < 0.2) {line.setType('wave')}
+      })
+    })
+  }
 
-  function drawLogo(ctx) {
+  function drawLogo() {
+    const canvas = document.getElementById('canvas-sample')
+    const ctx = canvas.getContext('2d')
     function percentX(value) {
       return value.x*ctx.canvas.width/100
     }
     function percentY(value) {
       return value.y*ctx.canvas.height/100
     }
+   let frame = requestAnimationFrame(drawLogo);
 
-    function sinLine(ctx, points) {
-      const p1 = points[0]
-      const p2 = points[1]
-      function getAtan2(dotA, dotB) {
-        return Math.atan2(
-          dotB.y - dotA.y,
-          dotB.x - dotA.x
-        )
-      }
-
-      const angle = getAtan2(p1, p2)
-      const cnt = 40
-      const size = 5
-      const ax = percentX(p1)
-      const bx = percentX(p2)
-      const ay = percentY(p1)
-      const by = percentY(p2)
-      // 0 - 100
-      // 1 - 99
-      ctx.moveTo(percentX(p1), percentY(p1))
-      ctx.beginPath()
-      for(let i = 1; i < cnt; i++) {
-        console.log(angle, Math.sin(angle), Math.cos(angle))
-        ctx.lineTo(
-          (ax*(i/cnt)+bx*(cnt-i)/cnt) + Math.cos(angle) * size, 
-          (ay*(i/cnt)+by*(cnt-i)/cnt) + Math.sin(angle) * size
-        )
-      }
-      ctx.stroke()
-    }
     ctx.lineWidth = ctx.canvas.width/30;
     ctx.strokeStyle = "black"
-
-    // height/2 + amplitude * Math.sin(x/frequency);
-    
+    ctx.clearRect(0, 0,   ctx.canvas.width,   ctx.canvas.height)
     dynamicLogo.types.forEach(type => {
       type.lines.forEach(line => {
-        ctx.beginPath()
-        // for(let i = 0; i < line.points.length; i++) {
-        //   const point = line.points[i]
-        //   if(i === 0) ctx.moveTo(percentX(point), percentY(point))
-        //   else ctx.lineTo(percentX(point), percentY(point))
-        // }
-        sinLine(ctx, line.points)
-        ctx.stroke()
+        line.drawSelf(ctx, frame)
       })
       type.graphics.forEach(graphic => {
-        console.log(percentX(graphic), percentY(graphic))
         ctx.beginPath()
         ctx.arc(percentX(graphic), percentY(graphic)+ctx.canvas.width/10, ctx.canvas.width/10, 0, Math.PI*2)
         ctx.stroke()
-        //ctx.fill()
       })
     })
   }
 
-
   function canvasResize(ctx) {
-
     const canvas = document.getElementById('canvas-sample')
     ctx = canvas.getContext('2d')
     ctx.canvas.width  = window.innerWidth;
-    // canvas.height = map(window.innerWidth, 1, 2000, 2, 1000);
     if(window.innerWidth < 500) {
       ctx.canvas.height = 250
     } else if (window.innerWidth < 1000) {
@@ -118,20 +80,11 @@
     } else {
       ctx.canvas.height = 700
     }
-    
-
-    // ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-
-    drawLogo(ctx)
-  
-    console.log("resize")
   }
 
   function mousemove(ctx) {
     const canvas = document.getElementById('canvas-sample')
     ctx = canvas.getContext('2d')
-    // ctx.fillRect(0, 0, 300, 280)
-    console.log("mousemove")
   }
 
   function map(value, inputStart, inputEnd, outputStart, outputEnd) {
