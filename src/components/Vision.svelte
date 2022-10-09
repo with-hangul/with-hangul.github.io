@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import Footer from '../components/Footer.svelte';
   import keywords from '../keywords'
+  import video from '../assets/videos/screen1280.mp4'
 
   onMount(() => {
 
@@ -10,8 +11,12 @@
 
 <main>
   <section>
+
     <div class="title">비전</div>
     <div class="content vision">
+      <video autoplay muted loop id="video-background">
+        <source src={video} type="video/mp4">
+      </video>
       <div>
         <div id="vision">누구나 자신의 글자를 만드는 세상</div>
         <div id="vision-description">글자랑의 비전은 전세계인 누구나 자신만의 개성있는 폰트를 창작하고<br />이를 활용할 수 있는 세상을 만드는 것입니다.</div>

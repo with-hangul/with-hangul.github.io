@@ -195,7 +195,13 @@
   </div> -->
   <canvas id="canvas-sample" class="border-bottom" on:mousemove={mousemove} >이 브라우저는 Javascript Canvas API를 지원하지 않습니다.</canvas>
   <section id="stickers-container" class="border-bottom" style="height: 460px; background-color: #F4F4F0;">
-
+    <div class="title">글자로 디지털 세상을 이롭게</div>
+    <div class="content">
+      <div class="description center">
+        <p>글자랑은 서체의 디지털화·시스템화·대중화에 대한 솔루션을 고민하는 스타트업입니다. 현재는 UX, 웹개발, 서체 디자인 분야의 전문가가 모여 새로운 웹서비스를 개발하고 있습니다.</p>
+      </div>
+     
+    </div>
     <div class="sticker"> <img src={geulStraight} alt="" /> </div>
     <div class="sticker"> <img src={geulDigital} alt="" /> </div>
     <div class="sticker"> <img src={jaStraight} alt="" /> </div>
@@ -213,13 +219,14 @@
   <!-- <section id="container" class="center border-bottom" style="background-color: #F4F4F0;"> -->
     <!-- <img src={logo} alt="" width="auto" height="85%" /> -->
   <!-- </section> -->
+  <Sprite />
   <section class="center border-bottom" style="background-color: #AC9AFF;">
     <div>
       <img src={logoDecorated} alt="" width="286" height="auto" />
       <div style="font-size: 50px; color: white;"><b>새로운 글자</b>를 <b>쉽고, 빠르게</b></div>
     </div>
   </section>
-  <Sprite />
+
   <Sprite />
   <Vision />
   <Keywords />
@@ -274,6 +281,23 @@
 <style>
   section {
     height: calc(100vh - 50px); /* Header 높이 제외 */
+  }
+
+
+  .title {
+    height: 160px;
+    font-weight: 700;
+    font-size: 60px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .description {
+    height: 200px;
+    font-size: 40px;
+    width: 100%;
   }
 
   .keyword {
