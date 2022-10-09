@@ -50,7 +50,7 @@
       tag.style.position = 'absolute'
       tag.style.top = `${
         map(window.innerHeight, 1, 2000, 2, 1500)
-        + keywordsContainer.offsetTop + Math.random() * (keywordsContainer.clientHeight - tag.clientHeight)}px`
+        + keywordsContainer.offsetTop + (-1 + Math.random() + Math.random()) * (keywordsContainer.clientHeight - tag.clientHeight)}px`
       tag.style.left = `${keywordsContainer.offsetLeft + Math.random() * (keywordsContainer.clientWidth - tag.clientWidth)}px`
     })
   })
@@ -233,12 +233,15 @@
     <!-- <img src={logo} alt="" width="auto" height="85%" /> -->
   <!-- </section> -->
   <SpriteWords />
-  <section class="center border-bottom" style="background-color: #AC9AFF;">
-    <img src={mockup} alt="" height="100%" width="auto" style="position: absolute; right: -180px;" />
+  <section class="center border-bottom">
+    <img src={mockup} alt="" height="100%" width="auto" style="position: absolute; right: -180px; z-index: -1; opacity: 0.8;" />
     <div style="z-index: 2;">
       <img src={logoDecorated} alt="" width="286" height="auto" />
-      <div style="font-size: 50px; color: white;"><b>새로운 글자</b>를 <b>쉽고, 빠르게</b></div>
+      <div style="font-size: 50px; color: white; text-shadow: #AC9AFF 1px 0 10px;"><b>새로운 글자</b>를 <b>쉽고, 빠르게</b></div>
     </div>
+    <div class="background" style="background-color: #AC9AFF;">
+   
+  </div>
   </section>
 
   <Sprite />
@@ -279,6 +282,12 @@
     height: calc(100vh - 50px); /* Header 높이 제외 */
   }
 
+  .background {
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:-2;
+  }
 
   .title {
     height: 160px;

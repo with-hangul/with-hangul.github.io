@@ -18,7 +18,7 @@
 </script>
 
 <main>
-  <section class="marquee" style="height: unset; background-color: black; color: white;">
+  <section class="marquee" style="height: unset; background-color: black; color: white; z-index: 3;">
     <div class="marquee-content">
       <span>폰트 이상의 글자, 누구나 자신의 글자를 만드는 세상, 글자로 디지털 세상을 이롭게, 디자인과 기술의 만남,</span>
     </div>
@@ -49,6 +49,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    z-index: 3;
   }
 
   .marquee-content {
