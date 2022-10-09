@@ -20,10 +20,30 @@
 <main>
   <section class="marquee" style="height: unset; background-color: black; color: white;">
     <div class="marquee-content">
-      <span>폰트 이상의 글자, 누구나 자신의 글자를 만드는 세상, 글자로 디지털 세상을 이롭게, 디자인과 기술의 만남,</span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
     </div>
     <div class="marquee-content">
-      <span>폰트 이상의 글자, 누구나 자신의 글자를 만드는 세상, 글자로 디지털 세상을 이롭게, 디자인과 기술의 만남,</span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
+      <span> 글자랑 · </span>
     </div>
   </section>
 </main>
@@ -70,10 +90,10 @@
 
   @keyframes marquee-content {
     0% {
-      transform: translateX(0%);
+      transform: translateX(-100%);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translateX(0%);
     }
   }
 

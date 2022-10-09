@@ -161,7 +161,7 @@
     padding: 8px 14px;
     overflow: hidden;
     white-space: nowrap;
-    background-color: white;
+    background-color: rgba(255,255,255,0.8);
     transition: transform 0.5s;
   }
 

@@ -7,7 +7,8 @@
   import Keywords from '../components/Keywords.svelte';
   import Vision from '../components/Vision.svelte';
   import Sprite from '../components/Sprite.svelte';
-
+  import SpriteWords from '../components/SpriteWords.svelte';
+  
   import logo from '../assets/logo.svg'
   import logoDecorated from '../assets/logo-decorated.svg'
   import mockup from '../assets/banners/mockup.png'
@@ -231,7 +232,7 @@
   <!-- <section id="container" class="center border-bottom" style="background-color: #F4F4F0;"> -->
     <!-- <img src={logo} alt="" width="auto" height="85%" /> -->
   <!-- </section> -->
-  <Sprite />
+  <SpriteWords />
   <section class="center border-bottom" style="background-color: #AC9AFF;">
     <img src={mockup} alt="" height="100%" width="auto" style="position: absolute; right: -180px;" />
     <div style="z-index: 2;">
