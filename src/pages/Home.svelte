@@ -9,7 +9,9 @@
   import jaCurved from '../assets/ja-curved.svg'
   import rangStraight from '../assets/rang-straight.svg'
   import rangCurved from '../assets/rang-curved.svg'
+  import dynamicLogo from '../dynamicLogo.js'
 
+  let innerWidth = window.innerWidth;
   onMount(() => {
     const stickersContainer = document.getElementById('stickers-container')
     const stickers = document.querySelectorAll('.sticker')
@@ -23,9 +25,72 @@
     // Canvas API 사용 예시
     const canvas = document.getElementById('canvas-sample')
     const ctx = canvas.getContext('2d')
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = map(window.innerHeight, 1, 2000, 2, 1500);
 
-    ctx.fillRect(50, 50, 100, 80)
+    drawLogo(ctx)
+    let frame = requestAnimationFrame(drawLogo);
+    let interval = setInterval(intervalLogo, 1200)
   })
+
+
+  function intervalLogo() {
+    dynamicLogo.types.forEach(type => {
+      type.lines.forEach(line => {
+        line.setType('straight')
+        if(Math.random(1) < 0.2) {line.setType('wave')}
+      })
+    })
+  }
+
+  function drawLogo() {
+    const canvas = document.getElementById('canvas-sample')
+    const ctx = canvas.getContext('2d')
+    function percentX(value) {
+      return value.x*ctx.canvas.width/100
+    }
+    function percentY(value) {
+      return value.y*ctx.canvas.height/100
+    }
+   let frame = requestAnimationFrame(drawLogo);
+
+    ctx.lineWidth = ctx.canvas.width/30;
+    ctx.strokeStyle = "black"
+    ctx.clearRect(0, 0,   ctx.canvas.width,   ctx.canvas.height)
+    dynamicLogo.types.forEach(type => {
+      type.lines.forEach(line => {
+        line.drawSelf(ctx, frame)
+      })
+      type.graphics.forEach(graphic => {
+        ctx.beginPath()
+        ctx.arc(percentX(graphic), percentY(graphic)+ctx.canvas.width/10, ctx.canvas.width/10, 0, Math.PI*2)
+        ctx.stroke()
+      })
+    })
+  }
+
+  function canvasResize(ctx) {
+    const canvas = document.getElementById('canvas-sample')
+    ctx = canvas.getContext('2d')
+    ctx.canvas.width  = window.innerWidth;
+    if(window.innerWidth < 500) {
+      ctx.canvas.height = 250
+    } else if (window.innerWidth < 1000) {
+      ctx.canvas.height = 500
+    } else {
+      ctx.canvas.height = 700
+    }
+  }
+
+  function mousemove(ctx) {
+    const canvas = document.getElementById('canvas-sample')
+    ctx = canvas.getContext('2d')
+  }
+
+  function map(value, inputStart, inputEnd, outputStart, outputEnd) {
+      const scale = (outputEnd - outputStart) / (inputEnd - inputStart) 
+      return value * scale +  (outputStart - inputStart * scale)            
+  }
 
   // p5-svelte 사용 예시
   const sketch = (p5) => {
@@ -48,7 +113,16 @@
   }
 </script>
 
+<svelte:window 
+  bind:innerWidth
+  on:resize={canvasResize} 
+  />
+
 <main>
+  <div>
+    Width: {innerWidth}
+  </div>
+  <canvas id="canvas-sample" on:mousemove={mousemove} >이 브라우저는 Javascript Canvas API를 지원하지 않습니다.</canvas>
   <section id="container" class="center border-bottom" style="background-color: #F4F4F0;">
     <!-- <img src={logo} alt="" width="auto" height="85%" /> -->
   </section>
@@ -107,7 +181,6 @@
     <img class="sticker" src={rangStraight} alt="" />
     <img class="sticker" src={rangCurved} alt="" />
   </section>
-  <canvas id="canvas-sample">이 브라우저는 Javascript Canvas API를 지원하지 않습니다.</canvas>
   <Footer />
 </main>
 <P5 {sketch} />
