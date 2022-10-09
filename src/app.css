@@ -49,6 +49,7 @@
   overflow-y: auto;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  word-break: keep-all;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
