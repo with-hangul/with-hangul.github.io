@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte'
+  import { onMount, afterUpdate } from 'svelte'
   import P5 from 'p5-svelte'
   import Footer from '../components/Footer.svelte';
   import ContactUs from '../components/ContactUs.svelte';
@@ -41,6 +41,18 @@
     dragElement(document.getElementsByClassName("sticker"))
   })
 
+  afterUpdate(() => {
+    const keywordsContainer = document.getElementById('keywords-container')
+    const keywordTags = document.querySelectorAll('.keyword')
+
+    keywordTags.forEach((tag) => {
+      tag.style.position = 'absolute'
+      tag.style.top = `${
+        map(window.innerHeight, 1, 2000, 2, 1500)
+        + keywordsContainer.offsetTop + Math.random() * (keywordsContainer.clientHeight - tag.clientHeight)}px`
+      tag.style.left = `${keywordsContainer.offsetLeft + Math.random() * (keywordsContainer.clientWidth - tag.clientWidth)}px`
+    })
+  })
 
   function changeSticker() {
     const stickersContainer = document.getElementById('stickers-container')
