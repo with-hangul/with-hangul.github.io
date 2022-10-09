@@ -10,6 +10,7 @@
 
   import logo from '../assets/logo.svg'
   import logoDecorated from '../assets/logo-decorated.svg'
+  import mockup from '../assets/banners/mockup.png'
 
   import geulStraight from '../assets/stickers/geul-straight.svg'
   import geulDigital from '../assets/stickers/geul-digital.svg'
@@ -220,7 +221,8 @@
   <!-- </section> -->
   <Sprite />
   <section class="center border-bottom" style="background-color: #AC9AFF;">
-    <div>
+    <img src={mockup} alt="" height="100%" width="auto" style="position: absolute; right: -180px;" />
+    <div style="z-index: 2;">
       <img src={logoDecorated} alt="" width="286" height="auto" />
       <div style="font-size: 50px; color: white;"><b>새로운 글자</b>를 <b>쉽고, 빠르게</b></div>
     </div>
