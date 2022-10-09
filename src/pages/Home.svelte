@@ -2,6 +2,12 @@
   import { onMount } from 'svelte'
   import P5 from 'p5-svelte'
   import Footer from '../components/Footer.svelte';
+  import ContactUs from '../components/ContactUs.svelte';
+  import HowToWork from '../components/HowToWork.svelte';
+  import Keywords from '../components/Keywords.svelte';
+  import Vision from '../components/Vision.svelte';
+  import Sprite from '../components/Sprite.svelte';
+  
   import logo from '../assets/logo.svg'
   import logoDecorated from '../assets/logo-decorated.svg'
 
@@ -213,12 +219,16 @@
       <div style="font-size: 50px; color: white;"><b>새로운 글자</b>를 <b>쉽고, 빠르게</b></div>
     </div>
   </section>
+  <Sprite />
+  <Sprite />
+  <Vision />
+  <Keywords />
   <div class="border-bottom" style="background-color: #BDFF00; height: 80px;"></div>
-  <section class="center border-bottom" style="height: unset;">
+  <!-- <section class="center border-bottom" style="height: unset;">
     <div class="keyword center">사람</div>
     <div class="keyword center">글자</div>
     <div class="keyword center">기술</div>
-  </section>
+  </section> -->
   <section class="marquee" style="height: unset; background-color: black; color: white;">
     <div class="marquee-content">
       <span>글자랑</span>
@@ -255,7 +265,8 @@
       <div>글을 자랑하다</div>
     </div>
   </section>
-
+  <HowToWork />
+  <ContactUs />
   <Footer />
 </main>
 <!-- <P5 {sketch} /> -->

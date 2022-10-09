@@ -7,7 +7,7 @@
   export let isDark;
 </script>
 
-<a href={link} class="center" class:dark={isDark}>
+<a href={link} target='_blank' class="center" class:dark={isDark}>
   <div class="content-wrapper" class:dark={isDark}>
     <div class="text">{text}</div>
     <img src={isDark ? arrowLinkWhite : arrowLink} alt="" width="13" height="13" />

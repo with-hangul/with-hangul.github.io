@@ -8,7 +8,7 @@
   import notion from '../assets/icons/notion.svg'
 </script>
 
-<footer>
+<footer class="border-top">
   <img src={logoWhite} alt="" width="70" height="auto" />
   <nav>
     <a href="https://linktr.ee/with.hangul" target='_blank'>
