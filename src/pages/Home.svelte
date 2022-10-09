@@ -294,6 +294,7 @@
   .description {
     font-size: 40px;
     width: 100%;
+    padding: 5%;
   }
 
   .description p {
