@@ -5,21 +5,32 @@
   import businesses from '../businesses';
   import video from '../assets/videos/screen1280.mp4'
   import LinkButton from '../components/LinkButton.svelte';
+
+  import kakao from '../assets/icons/kakao.svg'
+  import mail from '../assets/icons/mail.svg'
 </script>
 
 <main>
+
+
+
+
   <section id="contact-us">
     <div class="subheading">Contact us</div>
     <div class="cards-container">
       <div class="card">
-        <div class="heading">​​​​​​​프로젝트 의뢰는<br />아래의 이메일로</div>
+        <img src={mail} alt="mail" class='icon'/>
+        <div class="heading">​​​​​​​프로젝트 의뢰는<br />아래의 <span id="pointgreen"> 이메일</span>로</div>
         <p>협업 제안, 리서치 의뢰, 투자 제안 등<br />주저하지 말고 두드려주세요.</p>
-        <LinkButton link="mailto:with.hangul@gmail.com" text="메일 보내기" isDark={true} />
-      </div>
+        <div class="linkButton"> <LinkButton class="linkButton" link="mailto:with.hangul@gmail.com" text="메일 보내기" isDark={true} />
+        </div>
+        </div>
       <div class="card">
-        <div class="heading">가벼운 얘기라면<br />채팅도 좋아요</div>
+        <img src={kakao} alt="kakao"class='icon' />
+        <div class="heading">가벼운 얘기라면<br /><span id="pointyellow">채팅</span>도 좋아요</div>
         <p>서비스에 대한 피드백이나 문의<br />무엇이든 편하게 연락주세요.</p>
-        <LinkButton link="https://open.kakao.com/o/seBw5jGe" text="카카오톡 1:1 대화" isDark={true} />
+        <div class="linkButton"> <LinkButton link="https://open.kakao.com/o/seBw5jGe" text="카카오톡 1:1 대화" isDark={true} />
+        </div>
       </div>
     </div>
   </section>
@@ -45,6 +56,7 @@
     font-size: 22px;
     margin: 0px;
   }
+  
 
   #video-background {
     position: absolute;
@@ -139,10 +151,10 @@
   #contact-us .heading {
     color: white;
     margin-bottom: 39px;
+    padding-left: 5px;
   }
 
   #contact-us p {
-    color: white;
     margin-bottom: 20px;
   }
 
@@ -152,8 +164,26 @@
 
   #contact-us .card {
     flex: 1;
-    display: flex;
     flex-direction: column;
     padding: 10px;
+  }
+
+
+  .icon {
+    display: flex;
+    height: 40px;
+    padding: 0px 0px 0px 0px;
+  }
+
+  #pointyellow {
+    color: #FED35D;
+  }
+  #pointgreen {
+    color: #BDFF00;
+  }
+
+ 
+ .linkButton {
+   padding-left: 5px
   }
 </style>
