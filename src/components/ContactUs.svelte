@@ -155,6 +155,7 @@
   }
 
   #contact-us p {
+    color: white;
     margin-bottom: 20px;
   }
 
