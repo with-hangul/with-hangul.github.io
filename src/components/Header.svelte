@@ -38,11 +38,11 @@
   <button id="hamburger" class="center" on:click={toggleHamburger}>
     <img src={isHamburgerOpen ? close : hamburger} alt="menu" height="50%" />
   </button>
-  <nav>
+  <!-- <nav>
     <a href="/about" use:link on:click={select}>ABOUT</a>
     <a href="/vision" use:link on:click={select}>VISION</a>
     <a href="/projects" use:link on:click={select}>PROJECTS</a>
-  </nav>
+  </nav> -->
 </header>
 
 <style>

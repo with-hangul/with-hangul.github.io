@@ -15,7 +15,7 @@
 </script>
 
 <div>
-  <Header />
+  <!-- <Header /> -->
   <div style="height: 50px;"></div>
   <Router {routes} />
 </div>
