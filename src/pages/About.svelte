@@ -3,13 +3,13 @@
   import History from '../components/History.svelte';
   import BusinessCard from '../components/BusinessCard.svelte';
   import businesses from '../businesses';
-  import sample from '../assets/videos/sample.mp4'
+  import video from '../assets/videos/screen1280.mp4'
   import LinkButton from '../components/LinkButton.svelte';
 </script>
 
 <main>
   <video autoplay muted loop id="video-background">
-    <source src={sample} type="video/mp4">
+    <source src={video} type="video/mp4">
   </video>
   <section id="about">
     <!-- h1, h2 이런 거 쓰고 싶은데 어떻게 써야 할지 고민됨... -->
