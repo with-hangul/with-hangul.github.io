@@ -214,7 +214,7 @@
   <canvas id="canvas-sample" class="border-bottom" on:mousemove={mousemove} >이 브라우저는 Javascript Canvas API를 지원하지 않습니다.</canvas>
   <section id="stickers-container" class="border-bottom" style="height: 460px; background-color: #F4F4F0;">
     <div class="title">글자로 디지털 세상을 이롭게</div>
-    <div class="description center">
+    <div class="description center" style="">
       <p>글자랑은 서체의 디지털화·시스템화·대중화에 대한 솔루션을 고민하는 스타트업입니다. 현재는 UX, 웹개발, 서체 디자인 분야의 전문가가 모여 새로운 웹서비스를 개발하고 있습니다.</p>
     </div>
     <div class="sticker"> <img src={geulStraight} alt="" /> </div>
@@ -292,11 +292,10 @@
   .description {
     font-size: 40px;
     width: 100%;
-    padding: 5%;
   }
 
   .description p {
-    margin: 0px;
+    margin: 5%;
   }
 
   .keyword {
