@@ -25,6 +25,23 @@
 
   let innerWidth = window.innerWidth;
   onMount(() => {
+    // Canvas API 사용 예시
+    const canvas = document.getElementById('canvas-sample')
+    const ctx = canvas.getContext('2d')
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = map(window.innerHeight, 1, 2000, 2, 1500);
+
+    changeSticker()
+    drawLogo(ctx)
+    let frame = requestAnimationFrame(drawLogo);
+    let interval = setInterval(intervalLogo, 1200)
+    setInterval(changeSticker, 3000)
+
+    dragElement(document.getElementsByClassName("sticker"))
+  })
+
+
+  function changeSticker() {
     const stickersContainer = document.getElementById('stickers-container')
     const stickers = document.querySelectorAll('.sticker')
 
@@ -34,22 +51,7 @@
       sticker.style.left = `${(stickersContainer.offsetLeft - sticker.clientWidth / 2) + Math.random() * stickersContainer.clientWidth}px`
       sticker.style.transform = `rotate(${Math.floor(-30 + Math.random()*60)}deg)`;
     })
-
-    // Canvas API 사용 예시
-    const canvas = document.getElementById('canvas-sample')
-    const ctx = canvas.getContext('2d')
-    ctx.canvas.width  = window.innerWidth;
-    ctx.canvas.height = map(window.innerHeight, 1, 2000, 2, 1500);
-
-    drawLogo(ctx)
-    let frame = requestAnimationFrame(drawLogo);
-    let interval = setInterval(intervalLogo, 1200)
-
-    console.log(document)
-  console.log(document.getElementsByClassName("sticker"))
-  dragElement(document.getElementsByClassName("sticker"))
-  })
-
+  }
 
   function intervalLogo() {
     dynamicLogo.types.forEach(type => {
@@ -235,28 +237,10 @@
   </section> -->
   <section class="marquee" style="height: unset; background-color: black; color: white;">
     <div class="marquee-content">
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
+      <span>누구나 크리에이터가 될 수 있도록, 누구나 창작할 수 있도록, 누구나 디자인할 수 있도록, 누구나 실험할 수 있도록, 누구나 기여할 수 있도록, 누구나 생산할 수 있도록, 누구나 성장할 수 있도록, 누구나 창조할 수 있도록, 누구나 표현할 수 있도록,</span>
     </div>
     <div class="marquee-content">
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
-      <span>글자랑</span>
+      <span>누구나 크리에이터가 될 수 있도록, 누구나 창작할 수 있도록, 누구나 디자인할 수 있도록, 누구나 실험할 수 있도록, 누구나 기여할 수 있도록, 누구나 생산할 수 있도록, 누구나 성장할 수 있도록, 누구나 창조할 수 있도록, 누구나 표현할 수 있도록,</span>
     </div>
   </section>
   <section id="meanings-container" class="border-bottom center" style="background-color: #FED35D; height: unset;">
@@ -325,7 +309,7 @@
     flex-shrink: 0;
 
     animation-name: marquee-content;
-    animation-duration: 12s;
+    animation-duration: 42s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
   }
@@ -337,10 +321,10 @@
 
   @keyframes marquee-content {
     0% {
-      transform: translateX(-100%);
+      transform: translateX(0%);
     }
     100% {
-      transform: translateX(0%);
+      transform: translateX(-100%);
     }
   }
 
