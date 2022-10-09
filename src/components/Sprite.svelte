@@ -10,13 +10,6 @@
   import logo from '../assets/logo.svg'
   import logoDecorated from '../assets/logo-decorated.svg'
 
-  import geulStraight from '../assets/stickers/geul-straight.svg'
-  import geulDigital from '../assets/stickers/geul-digital.svg'
-  import jaStraight from '../assets/stickers/ja-straight.svg'
-  import jaCurved from '../assets/stickers/ja-curved.svg'
-  import rangStraight from '../assets/stickers/rang-straight.svg'
-  import rangCurved from '../assets/stickers/rang-curved.svg'
-
   import dynamicLogo from '../dynamicLogo.js'
 
   onMount(() => {

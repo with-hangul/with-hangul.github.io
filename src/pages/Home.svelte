@@ -17,6 +17,9 @@
   import jaCurved from '../assets/stickers/ja-curved.svg'
   import rangStraight from '../assets/stickers/rang-straight.svg'
   import rangCurved from '../assets/stickers/rang-curved.svg'
+  import jaBroken from '../assets/stickers/ja-broken.svg'
+  import geulBroken from '../assets/stickers/geul-broken.svg'
+  import rangBroken from '../assets/stickers/rang-broken.svg'
 
   import dynamicLogo from '../dynamicLogo.js'
 
@@ -27,7 +30,7 @@
 
     stickers.forEach((sticker) => {
       sticker.style.position = 'absolute'
-      sticker.style.top = `${stickersContainer.offsetTop + (1 + Math.random()) * (stickersContainer.clientHeight)}px`
+      sticker.style.top = `${stickersContainer.offsetTop * Math.random() + (Math.random()*2) * (stickersContainer.clientHeight)}px`
       sticker.style.left = `${(stickersContainer.offsetLeft - sticker.clientWidth / 2) + Math.random() * stickersContainer.clientWidth}px`
       sticker.style.transform = `rotate(${Math.floor(-30 + Math.random()*60)}deg)`;
     })
@@ -208,12 +211,9 @@
     <div class="sticker"> <img src={jaCurved} alt="" /> </div>
     <div class="sticker"> <img src={rangStraight} alt="" /> </div>
     <div class="sticker"> <img src={rangCurved} alt="" /> </div>
-    <div class="sticker"> <img src={geulStraight} alt="" /> </div>
-    <div class="sticker"> <img src={geulDigital} alt="" /> </div>
-    <div class="sticker"> <img src={jaStraight} alt="" /> </div>
-    <div class="sticker"> <img src={jaCurved} alt="" /> </div>
-    <div class="sticker"> <img src={rangStraight} alt="" /> </div>
-    <div class="sticker"> <img src={rangCurved} alt="" /> </div>
+    <div class="sticker"> <img src={geulBroken} alt="" /> </div>
+    <div class="sticker"> <img src={jaBroken} alt="" /> </div>
+    <div class="sticker"> <img src={rangBroken} alt="" /> </div>
   </section>
 
   <!-- <section id="container" class="center border-bottom" style="background-color: #F4F4F0;"> -->

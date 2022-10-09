@@ -1,15 +1,15 @@
 <svg width="151" height="151" viewBox="0 0 151 151" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.307617" y="0.307495" width="150" height="150" rx="75" fill="#BDFF00"/>
-<path d="M45.7197 25.1283L100.952 25.1283" stroke="black" stroke-width="11.6279"/>
-<path d="M45.7197 69.3243H100.952" stroke="black" stroke-width="11.6279"/>
-<path d="M45.7197 89.6734H100.952" stroke="black" stroke-width="11.6279"/>
-<path d="M45.7197 124.557H100.952" stroke="black" stroke-width="11.6279"/>
-<path d="M103.288 99.1423L45.1907 111.645" stroke="black" stroke-width="11.6279"/>
-<path d="M100.12 33.2256L94.014 61.1983" stroke="black" stroke-width="11.6279"/>
-<path d="M45.7192 25.1283L100.952 25.1283" stroke="#BDFF00"/>
-<path d="M45.7192 69.3243H100.952" stroke="#BDFF00"/>
-<path d="M45.7192 89.6734H100.952" stroke="#BDFF00"/>
-<path d="M45.7192 124.557H100.952" stroke="#BDFF00"/>
-<path d="M103.288 99.1423L45.1907 111.645" stroke="#BDFF00"/>
-<path d="M100.12 33.2256L94.0135 61.1983" stroke="#BDFF00"/>
+<rect x="0.995728" y="0.865723" width="150" height="150" rx="75" fill="black"/>
+<path d="M46.4076 25.6865H101.64" stroke="white" stroke-width="11.6279"/>
+<path d="M46.4076 69.8825H101.64" stroke="white" stroke-width="11.6279"/>
+<path d="M46.4076 90.2316H101.64" stroke="white" stroke-width="11.6279"/>
+<path d="M46.4076 125.115H101.64" stroke="white" stroke-width="11.6279"/>
+<path d="M103.976 99.7005L45.8788 112.203" stroke="white" stroke-width="11.6279"/>
+<path d="M100.808 33.7839L94.7018 61.7565" stroke="white" stroke-width="11.6279"/>
+<path d="M46.4076 25.6865H101.64" stroke="black"/>
+<path d="M46.4076 69.8825H101.64" stroke="black"/>
+<path d="M46.4076 90.2316H101.64" stroke="black"/>
+<path d="M46.4076 125.115H101.64" stroke="black"/>
+<path d="M103.976 99.7005L45.8788 112.203" stroke="black"/>
+<path d="M100.808 33.7839L94.7018 61.7565" stroke="black"/>
 </svg>
