@@ -48,7 +48,6 @@
   .content.vision {
     background-color: black;
     color: white;
-    height: 600px;
   }
 
   .content.vision > div {
@@ -66,12 +65,17 @@
   #vision-description {
     font-size: 25px;
     text-align: center;
+    margin: 0px;
+    padding : 50px;
   }
 
   .description {
-    height: 200px;
     font-size: 40px;
     width: 100%;
+  }
+  
+  .description p {
+ 
   }
 
   #interests-container {

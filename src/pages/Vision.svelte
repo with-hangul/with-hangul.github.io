@@ -138,10 +138,6 @@
     justify-content: center;
     align-items: center;
   }
-
-  .script {
-    padding: 20px
-  }
   
   .content {
     display: flex;
