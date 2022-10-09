@@ -8,7 +8,6 @@
   })
 
   function toggle(e) {
-    console.log("e.target", e.target)
     document.querySelectorAll('.toggle').forEach((el) => {
       el.children[0].style.backgroundColor = 'white'
       el.children[0].classList.remove('selected')

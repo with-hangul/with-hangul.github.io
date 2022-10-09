@@ -127,8 +127,6 @@
 
 
   function dragElement(elmnts) {
-    console.log(elmnts)
-    console.log(typeof elmnts)
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   for(let i = 0; i< elmnts.length; i++) {
     const elmnt = elmnts[i]
