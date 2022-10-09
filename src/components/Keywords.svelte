@@ -9,7 +9,7 @@
 
     keywordTags.forEach((tag) => {
       tag.style.position = 'absolute'
-      tag.style.top = `${keywordsContainer.offsetTop + Math.random() * (keywordsContainer.clientHeight - tag.clientHeight)}px`
+      tag.style.top = `${keywordsContainer.offsetTop + (-2 + Math.random()*2.8) * (keywordsContainer.clientHeight - tag.clientHeight)}px`
       tag.style.left = `${keywordsContainer.offsetLeft + Math.random() * (keywordsContainer.clientWidth - tag.clientWidth)}px`
     })
   })
