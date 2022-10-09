@@ -4,11 +4,14 @@
   import Footer from '../components/Footer.svelte';
   import logo from '../assets/logo.svg'
   import logoDecorated from '../assets/logo-decorated.svg'
-  import geulStraight from '../assets/geul-straight.svg'
-  import jaStraight from '../assets/ja-straight.svg'
-  import jaCurved from '../assets/ja-curved.svg'
-  import rangStraight from '../assets/rang-straight.svg'
-  import rangCurved from '../assets/rang-curved.svg'
+
+  import geulStraight from '../assets/stickers/geul-straight.svg'
+  import geulDigital from '../assets/stickers/geul-digital.svg'
+  import jaStraight from '../assets/stickers/ja-straight.svg'
+  import jaCurved from '../assets/stickers/ja-curved.svg'
+  import rangStraight from '../assets/stickers/rang-straight.svg'
+  import rangCurved from '../assets/stickers/rang-curved.svg'
+
   import dynamicLogo from '../dynamicLogo.js'
 
   let innerWidth = window.innerWidth;
@@ -18,8 +21,9 @@
 
     stickers.forEach((sticker) => {
       sticker.style.position = 'absolute'
-      sticker.style.top = `${stickersContainer.offsetTop + Math.random() * (stickersContainer.clientHeight - sticker.clientHeight)}px`
+      sticker.style.top = `${stickersContainer.offsetTop + (1 + Math.random()) * (stickersContainer.clientHeight)}px`
       sticker.style.left = `${(stickersContainer.offsetLeft - sticker.clientWidth / 2) + Math.random() * stickersContainer.clientWidth}px`
+      sticker.style.transform = `rotate(${Math.floor(-30 + Math.random()*60)}deg)`;
     })
 
     // Canvas API 사용 예시
@@ -31,6 +35,10 @@
     drawLogo(ctx)
     let frame = requestAnimationFrame(drawLogo);
     let interval = setInterval(intervalLogo, 1200)
+
+    console.log(document)
+  console.log(document.getElementsByClassName("sticker"))
+  dragElement(document.getElementsByClassName("sticker"))
   })
 
 
@@ -92,6 +100,63 @@
       return value * scale +  (outputStart - inputStart * scale)            
   }
 
+
+  function dragElement(elmnts) {
+    console.log(elmnts)
+    console.log(typeof elmnts)
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  for(let i = 0; i< elmnts.length; i++) {
+    const elmnt = elmnts[i]
+    if (document.getElementById(elmnt.id + "header")) {
+      // if present, the header is where you move the DIV from:
+      document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+      // otherwise, move the DIV from anywhere inside the DIV:
+      elmnt.onmousedown = dragMouseDown;
+    }
+  }
+
+  let target
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+
+    target = null
+    if(e.target.tagName === 'IMG') {
+      target = e.target.parentNode
+    }
+    else if(e.target.tagName === 'DIV') {
+      target = e.target
+    }
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    target.style.top = (target.offsetTop - pos2) + "px";
+    target.style.left = (target.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
   // p5-svelte 사용 예시
   const sketch = (p5) => {
     let logoImg;
@@ -119,13 +184,13 @@
   />
 
 <main>
-  <div>
+  <!-- <div>
     Width: {innerWidth}
-  </div>
+  </div> -->
   <canvas id="canvas-sample" on:mousemove={mousemove} >이 브라우저는 Javascript Canvas API를 지원하지 않습니다.</canvas>
-  <section id="container" class="center border-bottom" style="background-color: #F4F4F0;">
+  <!-- <section id="container" class="center border-bottom" style="background-color: #F4F4F0;"> -->
     <!-- <img src={logo} alt="" width="auto" height="85%" /> -->
-  </section>
+  <!-- </section> -->
   <section class="center border-bottom" style="background-color: #AC9AFF;">
     <div>
       <img src={logoDecorated} alt="" width="286" height="auto" />
@@ -175,15 +240,22 @@
     </div>
   </section>
   <section id="stickers-container" style="height: 460px; background-color: #F4F4F0;">
-    <img class="sticker" src={geulStraight} alt="" />
-    <img class="sticker" src={jaStraight} alt="" />
-    <img class="sticker" src={jaCurved} alt="" />
-    <img class="sticker" src={rangStraight} alt="" />
-    <img class="sticker" src={rangCurved} alt="" />
+    <div class="sticker"> <img src={geulStraight} alt="" /> </div>
+    <div class="sticker"> <img src={geulDigital} alt="" /> </div>
+    <div class="sticker"> <img src={jaStraight} alt="" /> </div>
+    <div class="sticker"> <img src={jaCurved} alt="" /> </div>
+    <div class="sticker"> <img src={rangStraight} alt="" /> </div>
+    <div class="sticker"> <img src={rangCurved} alt="" /> </div>
+    <div class="sticker"> <img src={geulStraight} alt="" /> </div>
+    <div class="sticker"> <img src={geulDigital} alt="" /> </div>
+    <div class="sticker"> <img src={jaStraight} alt="" /> </div>
+    <div class="sticker"> <img src={jaCurved} alt="" /> </div>
+    <div class="sticker"> <img src={rangStraight} alt="" /> </div>
+    <div class="sticker"> <img src={rangCurved} alt="" /> </div>
   </section>
   <Footer />
 </main>
-<P5 {sketch} />
+<!-- <P5 {sketch} /> -->
 
 <style>
   section {
@@ -266,5 +338,20 @@
       border-right: none;
       border-bottom: 2px solid black;
     }
+  }
+
+  .stickers-container {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+  }
+
+  .sticker {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    color: #fff;
   }
 </style>
