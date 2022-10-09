@@ -85,7 +85,23 @@
 </main>
 
 <style>
+  .title {
+    background-color: #AC9AFF;
+    height: 160px;
+    font-weight: 700;
+    font-size: 100px;
+    color: black;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .description {
+    height: 200px;
+    font-size: 40px;
+    width: 100%;
+  }
 
   .content {
     display: flex;
