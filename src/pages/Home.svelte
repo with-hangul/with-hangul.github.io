@@ -187,7 +187,23 @@
   <!-- <div>
     Width: {innerWidth}
   </div> -->
-  <canvas id="canvas-sample" on:mousemove={mousemove} >이 브라우저는 Javascript Canvas API를 지원하지 않습니다.</canvas>
+  <canvas id="canvas-sample" class="border-bottom" on:mousemove={mousemove} >이 브라우저는 Javascript Canvas API를 지원하지 않습니다.</canvas>
+  <section id="stickers-container" class="border-bottom" style="height: 460px; background-color: #F4F4F0;">
+
+    <div class="sticker"> <img src={geulStraight} alt="" /> </div>
+    <div class="sticker"> <img src={geulDigital} alt="" /> </div>
+    <div class="sticker"> <img src={jaStraight} alt="" /> </div>
+    <div class="sticker"> <img src={jaCurved} alt="" /> </div>
+    <div class="sticker"> <img src={rangStraight} alt="" /> </div>
+    <div class="sticker"> <img src={rangCurved} alt="" /> </div>
+    <div class="sticker"> <img src={geulStraight} alt="" /> </div>
+    <div class="sticker"> <img src={geulDigital} alt="" /> </div>
+    <div class="sticker"> <img src={jaStraight} alt="" /> </div>
+    <div class="sticker"> <img src={jaCurved} alt="" /> </div>
+    <div class="sticker"> <img src={rangStraight} alt="" /> </div>
+    <div class="sticker"> <img src={rangCurved} alt="" /> </div>
+  </section>
+
   <!-- <section id="container" class="center border-bottom" style="background-color: #F4F4F0;"> -->
     <!-- <img src={logo} alt="" width="auto" height="85%" /> -->
   <!-- </section> -->
@@ -239,20 +255,7 @@
       <div>글을 자랑하다</div>
     </div>
   </section>
-  <section id="stickers-container" style="height: 460px; background-color: #F4F4F0;">
-    <div class="sticker"> <img src={geulStraight} alt="" /> </div>
-    <div class="sticker"> <img src={geulDigital} alt="" /> </div>
-    <div class="sticker"> <img src={jaStraight} alt="" /> </div>
-    <div class="sticker"> <img src={jaCurved} alt="" /> </div>
-    <div class="sticker"> <img src={rangStraight} alt="" /> </div>
-    <div class="sticker"> <img src={rangCurved} alt="" /> </div>
-    <div class="sticker"> <img src={geulStraight} alt="" /> </div>
-    <div class="sticker"> <img src={geulDigital} alt="" /> </div>
-    <div class="sticker"> <img src={jaStraight} alt="" /> </div>
-    <div class="sticker"> <img src={jaCurved} alt="" /> </div>
-    <div class="sticker"> <img src={rangStraight} alt="" /> </div>
-    <div class="sticker"> <img src={rangCurved} alt="" /> </div>
-  </section>
+
   <Footer />
 </main>
 <!-- <P5 {sketch} /> -->
